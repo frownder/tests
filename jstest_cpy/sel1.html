@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#div1,p,form.myClass").css("border","1px solid #ff0000");  //#div1  *
+        $("tr:eq(0) > td:nth-child(2n+1)").css("background", "red");
+
+    });
+</script>
+
+<body>
+    <h2>test </h2>
+    <p> ppp test</p>
+
+    <div id="div1">
+        DIV1 CONTENT
+    </div>
+
+    <form class="myClass">
+        <input type="text" name="in1" value=""/>
+        <input type="checkbox" unchecked />
+
+    </form>
+
+<script type="text/javascript">
+document.writeln("JAVA SCRIPT");
+</script>
+
+    <table>
+    <tr>
+        <td>1</td>  <td>2</td><td>3</td><td>4</td><td>5</td>
+    </tr>
+    <tr>
+        <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+    </tr>
+    </table>
+</body>
+</html>

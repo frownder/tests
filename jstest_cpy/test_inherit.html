@@ -1,0 +1,66 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+
+    console.log("hi 1"); //use F12 for chrome
+
+    var ajaxObj; //for global variable..
+
+    function AjaxBasic(){
+        ////// member
+        //this.xhr
+
+        if ( window.XMLHttpRequest){
+            this.xhr = new XMLHttpRequest();
+        }else{
+            console.log("NO XHR support maybe ~ IE6");
+            return;
+        }
+
+        this.xhr.onreadystatechange=function(){
+            if (ajaxObj.xhr.readyState==4 && ajaxObj.xhr.status==200)
+                document.body.innerHTML=ajaxObj.xhr.responseText;
+        }
+      
+        //// method..  run()
+        this.run = function(){ 
+            this.xhr.open("GET", "test_data.txt", true);
+            this.xhr.send();
+        }
+    }
+
+    function MyAjax(){
+        this.run = function(fileUrl){
+            ajaxObj.xhr.open("GET", fileUrl, true);
+            ajaxObj.xhr.send();
+        }
+    }
+
+    ///Inherit =  prototype + constructor
+    MyAjax.prototype = new AjaxBasic();
+    MyAjax.prototype.constructor = MyAjax();
+
+    //////////////////// test code ///////////////////
+    function myOnload(){
+        ////AjaxBasic
+        //ajaxObj = new AjaxBasic();  
+        //ajaxObj.run();
+
+        ////inherit
+        ajaxObj = new MyAjax();
+        ajaxObj.run("test_data2.txt");
+    }
+    window.onload = myOnload;
+    
+</script>
+</head>
+
+
+<body>
+<p> this is HTML paragraph</p>
+
+</body>
+
+</html>

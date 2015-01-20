@@ -1,0 +1,2 @@
+Hi this is text from test_data.txt
+the end.

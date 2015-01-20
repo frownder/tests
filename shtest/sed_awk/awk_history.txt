@@ -1,0 +1,25 @@
+ 2134  awk -F '[\t]' '{print $1}' employees
+ 2135  awk -F ' ' '{print $1}' employees
+ 2137  awk -F: '{print $1}' /etc/passwd
+ 2129  awk '$1 ~ /Tom/ {print $1,$2}' employees
+ 2130  awk '$1 !~ /Tom/ {print $1,$2}' employees
+awk '$3==4424' employees
+awk '$1=="Tom"' employees
+
+ awk '{print $1"\t"$2}' employees
+
+ 2166  awk '{if($7>4) print $1}' datafile
+ 2167  awk '{print($7>4?$1" "$7:$2" "$7)}' datafile
+ 2168  awk '{ max=($7>4)?$1:$2; print max}' datafile
+
+ awk '{$9=$7*$8; print $0,$9}' datafile
+
+
+ awk 'BEGIN {while("ls"|getline)print $0}'   #only ONE execution With BEGIN
+
+
+awk '{for(i=1;i<=NF;i++) print $(i)}' datafile
+awk '{name[x++]=$2};END{ for(i=0;i<NF;i++)print name[i]}' employees
+
+awk '{id[NR]=$3};END{ for(i=1;i<=NR;i++)print id[i]}' employees
+

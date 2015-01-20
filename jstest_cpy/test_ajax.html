@@ -1,0 +1,38 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+
+    console.log("hi 1"); //use F12 for chrome
+
+    function ajaxSend(){
+        var xhr;
+        if ( window.XMLHttpRequest){
+            xhr = new XMLHttpRequest();
+        }else{
+            console.log("NO XHR support maybe ~ IE6");
+            return;
+        }
+
+        xhr.onreadystatechange=function(){
+            if (xhr.readyState==4 && xhr.status==200)
+                document.body.innerHTML=xhr.responseText;
+        }
+
+        xhr.open("GET", "test_data.txt", true);
+        xhr.send();
+    }
+
+    window.onload = ajaxSend;
+    
+</script>
+</head>
+
+
+<body>
+<p> this is HTML paragraph</p>
+
+</body>
+
+</html>

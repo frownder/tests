@@ -1,0 +1,17 @@
+sed -n '/north/p' datafile
+sed -n '1,5p' datafile
+sed -n '/west/,/east/p' datafile
+
+sed '/north/d' datafile
+sed '1,5d' datafile
+
+sed 's/\<west[0-9]\>//' datafile # just one in 1line changes.  "DELETE" effect
+sed 's/west/WEST/g' datafile  # g means more all per line base.
+sed 's/[0-9]$//' datafile
+
+# add/change LINE
+sed '/north/a\ hi yong!' datafile   #add next
+sed '/north/i\ hi yong!' datafile   #add prev
+sed '/north/c\ hi yong!' datafile   #change
+
+sed -e '1,3d' -e 's/east/EAST/' -e 's/north/NORTH/' datafile

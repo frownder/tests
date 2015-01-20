@@ -1,0 +1,18 @@
+
+CC	=gcc
+TARGET	=fstest
+OBJS	= main.o
+
+.SUFFIXES: .c .o
+
+#OPTION
+LFLAGS	= -lccp_fs_api -lnacc -lpthread -lstdc++
+
+#DEPENDENCY
+all:$(TARGET) 
+
+$(TARGET):$(OBJS) 
+	$(CC) -g -o $@ $(OBJS) -L. $(LFLAGS) 
+
+clean:
+	rm -rf $(OBJS) $(TARGET)
